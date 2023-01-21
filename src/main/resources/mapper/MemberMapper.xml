@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.webMovies.mapper.MemberMapper">
+
+    <select id="getId" parameterType="String" resultType="String">
+        SELECT
+             USER_ID
+        FROM MEMBER
+        WHERE USER_ID = #{userId}
+    </select>
+
+    <insert id="register" parameterType="MemberVO">
+        INSERT INTO MEMBER(
+              MEMBERID
+            , USERID
+            , PWD
+            , NAME
+            , PHONE_NUM
+            , EMAIL
+            , USERSTATE
+        )
+        VALUES(
+              #{memberId}
+            , #{userId}
+            , #{pwd}
+            , #{name}
+            , #{phoneNum}
+            , #{email}
+            , #{userState})
+    </insert>
+
+    <select id="getMemberInfoForLogin" parameterType="LoginRequestVO" resultType="MemberVO">
+        SELECT
+              MEMBER_ID
+            , USER_ID
+            , NAME
+            , EMAIL
+            , USER_STATE
+        FROM MEMBER
+        WHERE USER_ID = #{userId} and PWD = #{pwd}
+    </select>
+
+    <select id="getMemberInfo" parameterType="MemberVO" resultType="MemberVO">
+        SELECT
+              MEMBER_ID
+            , USER_ID
+            , PWD
+            , NAME
+            , PHONE_NUM
+            , EMAIL
+            , USER_STATE
+        FROM MEMBER
+        WHERE MEMBER_ID = #{memberId}
+    </select>
+</mapper>

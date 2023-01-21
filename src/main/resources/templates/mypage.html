@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
+	<head>
+		<title>마이페이지</title>
+		<link rel="stylesheet" href="/css/reset.css">
+		<link rel="stylesheet" href="/css/header.css">
+		<link rel="stylesheet" href="/css/myPage.css">
+		<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css' />
+		<script src='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js'></script>
+		<link rel="stylesheet" href="/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+		<!--MemberVO login = (MemberVO) session.getAttribute("login");
+		if (login != null)
+		System.out.println(login.toString());
+
+		List<ReservationVO> list = (List<ReservationVO>) request.getAttribute("reserveList");-->
+	</head>
+	<th:block layout:fragment="content">
+		<div header="none;"></div>
+		<div th:if="${login} == null">
+			<script>
+				alert("로그인이 필요한 작업입니다 로그인을 진행해 주세요!")
+				location.href = "main"
+			</script>
+		</div>
+			<div class="my-page-container">
+				<div class="my-page-wrapper">
+					<div class="my-page-header">예약한 영화 목록</div>
+						<div class="movie-reserve-list">
+							<div th:each="reservation : ${list}" th:if="${reservation} == null" th:text="'예약한 영화가 없습니다'"></div>
+							<div class="movie-reserve" >
+								<div th:if="${reservation} != null">
+								<div class="movie-reserve-age" th:text="reservation.getAge()"></div>
+								<div class="movie-reserve-title" th:text="reservation.getTitle()"></div>
+								<div class="movie-reserve-theater-wrapper">
+									<div th:text="reservation.getSelectedTheater()"></div>
+									&nbsp;/&nbsp;
+									<div class="ticket-numeber" th:text="reservation.getReserveTicket()">장</div>
+								</div>
+								<div class="movie-reserve-seats" th:text="reservation.getSelectedSeat()"></div>
+								<div class="movie-reserve-date-wrapper">
+									<div class="movie-reserve-date" th:text="reservation.getMovieStart()"></div>
+									<div class="movie-reserve-runningTime" th:text="reservation.getPlaytime()"></div>
+								</div>
+								<div class="movie"></div>
+
+								<div class="pay-information-wrapper">
+									<div class="pay-information-date-wrapper">
+										<div class="pay-information-date-title">결제한 날</div>
+										<div class="pay-information-date" th:text="reservation.getCgvPayDto().getPayDate()"></div>
+									</div>
+									<div class="pay-information-money-wrapper">
+										<div class="pay-information-money-title">결제한 비용</div>
+										<div class="pay-information-money" th:text="reservation.getCgvPayDto().getPayMoney()">원</div>
+									</div>
+									<div class="barcode-wrapper">
+										<div>CGV</div>
+										<img src="/images/barcode.png">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</body>
+	</th:block>
+</html>

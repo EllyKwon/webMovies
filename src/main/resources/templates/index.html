@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
+    <head>
+        <title>영화의 모든 것, MegaBox</title>
+        <link rel="stylesheet" href="/css/reset.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <th:block layout:fragment="content">
+        <body>
+            <div>
+                <div class="content-header-container">
+                    <div class="content-header-wrapper">
+                        <div class="content-header-title">무비 차트</div>
+                        <div class="content-header-menu">
+                            <div class="chart"><button class="selectedMenu">무비차트</button></div>
+                            <div class="movie-notice"><button>상영예정작</button></div>
+                            <div class="movie-house"><button>CGV아트하우스</button></div>
+                        </div>
+                    </div>
+                    <div class="movie-infomation-wrapper">
+                        <div class="movie-informaion">
+                            <div class="movie-rank">No.1</div>
+                            <div class="poster-wrapper"><img src="/images/background.jpg"></div>
+                            <div>
+                                <div class="movie-title">제목</div>
+                                <div class="movie-rate"><span>예매율</span><span >22.5%</span></div>
+                                <div class="movie-date">2020.02.26 재개봉</div>
+                                <div class="like-reserve-wrapper">
+                                    <div>
+                                        <button class="movie-like">
+                                            <img class="likeButton"src="/images/heart.png" >
+                                            <span>2,792</span>
+                                        </button>
+                                    </div>
+                                    <button type="button" class="reserveButton"><img src="/images/reserve.PNG"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="/js/main.js"></script>
+        </body>
+    </th:block>
+</html>

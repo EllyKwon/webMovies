@@ -1,0 +1,16 @@
+.nav-wrapper {
+    height: 94px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    display:none;
+}
+
+.header-nav-wrapper {
+    background: url(../images/bg_header.gif) repeat-x 0 0;
+    background-position: center;
+    background-size: contain;
+    height: 120px;
+    padding-top: 4px;
+    display:none;
+}

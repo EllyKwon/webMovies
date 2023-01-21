@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.webMovies.mapper.ReservationMapper">
+
+    <select id="selectMemberReservation" parameterType="ReservationVO" resultType="ReservationVO">
+        SELECT
+            A.MEMBER_ID
+          , A.RESERVE_ID
+          , A.TITLE
+          , A.PLAYTIME
+          , A.AGE
+          , A.MOVIE_START
+          , A.RESERVE_TIME
+          , A.RESERVE_TICKET
+          , A.SELECTED_SEAT
+          , A.SELECTED_THEATER
+          , B.PAY_MONEY
+          , B.PAY_DATE
+        FROM RESERVATION A JOIN PAY B ON A.RESERVE_ID = B.RESERVE_ID
+        WHERE A.MEMBER_ID = #{memberId}
+        ORDER BY B.PAY_DATE DESC
+    </select>
+
+
+    <insert id="insertReserve" parameterType="ReservationVO">
+        INSERT INTO RESERVATION (
+              MEMBER_ID
+            , RESERVE_ID
+            , TITLE
+            , PLAYTIME
+            , AGE
+            , MOVIE_START
+            , RESERVE_TIME
+            , RESERVE_TICKET
+            , SELECTED_SEAT
+            , SELECTED_THEATER
+        )
+        VALUES (
+              #{memberId}
+            , #{reserveId}
+            , #{title}
+            , #{playtime}
+            , #{age}
+            , #{movieStart}
+            , reserveTime
+            , #{reserveTicket}
+            , #{selectedSeat}
+            , #{selectedTheater}
+        )
+    </insert>
+
+    <select id="getReserveList" parameterType="ReservationVO" resultType="ReservationVO" >
+        SELECT
+              MEMBER_ID
+            , RESERVE_ID
+            , TITLE
+            , PLAYTIME
+            , AGE
+            , MOVIE_START
+            , RESERVE_TIME
+            , RESERVE_TICKET
+            , SELECTED_SEAT
+            , SELECTED_THEATER
+        FROM RESERVATION WHERE MEMBER_ID = #{memberId}
+        ORDER BY RESERVE_ID DESC
+    </select>
+</mapper>
