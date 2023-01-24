@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
-    <!-- <%
-    CGVMemberDto login = (CGVMemberDto)session.getAttribute("login");
-    if(login!= null) System.out.println(login.toString());
-    %>-->
     <head>
         <title>영화예약</title>
         <link rel="stylesheet" href="/css/reset.css">
         <link rel="stylesheet" href="/css/header.css">
         <link rel="stylesheet" href="/css/reserve.css">
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css' />
-        <script src='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js'></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
         <link rel="stylesheet" href="/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
     </head>
 
@@ -24,6 +19,7 @@
                 </script>
             </div>
             <div class="reserve-container">
+<!--
                 <div class="movie-part">
                     <div class="reserve-title">영화</div>
                     <div class="sort-wrapper">
@@ -37,6 +33,7 @@
                         </div>
                     </div>
                 </div>
+-->
                 <div class="theater-part">
                     <div class="reserve-title">
                         극장
@@ -101,7 +98,7 @@
                     </div>
                     <div>
                     <form th:action="@{/seat}" class="moveSeatForm" method="post">
-                        <input type="hidden" class="title" name="title">
+                        <input type="hidden" class="title" name="title" th:value="${infoVO.movieTitle}">
                         <input type="hidden" class="movieAge" name="age">
                         <input type="hidden" class="selectedTheater" name="selectedTheater">
                         <input type="hidden" class="reserveDate" name="movieStart">

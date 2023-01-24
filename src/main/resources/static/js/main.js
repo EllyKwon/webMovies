@@ -64,12 +64,12 @@ function moveReserve(list, index) {
         console.log(list);
         console.log(index);
 
-        document.querySelector('.movie-informaion').submit();
+        document.querySelector('.reservForm' + index).submit();
     });
 }
 
 function getList(data, index) {
-    return `<form action="/reserve" method="post" class="movie-informaion" id="${index}">
+    return `<form action="/reserve" method="post" class="movie-informaion reservForm${index}" id="${index}">
     
                 <div class="movie-rank">${data.rank}</div>
                 <div class="poster-wrapper"><img src="${data.img}"></div>

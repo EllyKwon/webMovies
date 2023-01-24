@@ -14,7 +14,7 @@ public class InfoVO {
 	String movieRate; //예매율
 	String movieOpenDate; //개봉일
 	String like;
-	int seq;
+	Integer seq;
 
 	
 }

@@ -1,5 +1,6 @@
 package com.webMovies.controller;
 
+import com.webMovies.model.InfoVO;
 import com.webMovies.model.MemberVO;
 import com.webMovies.model.PayVO;
 import com.webMovies.model.ReservationVO;
@@ -9,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -26,9 +26,7 @@ public class ReservationController {
 	private final PayService payService;
 
 	@PostMapping("/reserve")
-	public String reserve(Model model, HttpSession session) {
-		/*MemberVO login = (MemberVO)session.getAttribute("login");
-		model.addAttribute("login",login);*/
+	public String reserve(InfoVO infoVO) {
 		return "reserve";
 	}
 	

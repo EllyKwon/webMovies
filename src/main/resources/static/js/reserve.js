@@ -70,7 +70,6 @@ function add() {
         },
     });*/
 
-
     fetch('/movie/crawling')
         .then((response) => response.json())
         .then((data) => {
@@ -87,7 +86,7 @@ function add() {
                 }
             });
             if (crawlingData.length === 0) {
-                location.href = 'reserve';
+                location.href = '/reserve';
             }
             document.querySelectorAll('.movie-list-title').forEach(li => {
                 li.addEventListener('click', function() {
@@ -140,7 +139,7 @@ function getMovieList(item) {
 function addDate() {
     const weekOfDay = ['일', '월', '화', '수', '목', '금', '토'];
     year = date.getFullYear();
-    month = date.getMonth();
+    month = date.getMonth() + 1;
     reserveDate.append(year + '/' + month);
     for (i = date.getDate(); i <= lastDay.getDate(); i++) {
         const button = document.createElement('button');
@@ -226,6 +225,8 @@ reserveTimeWant.forEach(list => {
     });
 });
 
+
+
 moveSeatButton.addEventListener('click', function() {
     if (!!inputTitle.value &&
         !!inputSelectedTheater.value &&
@@ -234,16 +235,10 @@ moveSeatButton.addEventListener('click', function() {
     ) {
         moveSeatForm.submit();
     } else {
-        toastr.options = {
-            positionClass: 'toast-top-full-width',
-            progressBar: true,
-            timeOut: 1000,
-        };
-        toastr.error(
-            '<div style="color:white">모든 항목을 체크해 주세요</div>',
-            '<div style="color:white">경고</div>', {
-                timeOut: 3000,
-            }
-        );
+       Swal.fire({
+         text: '모든 항목을 체크해 주세요',
+         confirmButtonText: '확인',
+         width: 270
+       })
     }
 });

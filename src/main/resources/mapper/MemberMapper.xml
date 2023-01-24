@@ -12,13 +12,13 @@
 
     <insert id="register" parameterType="MemberVO">
         INSERT INTO MEMBER(
-              MEMBERID
-            , USERID
+              MEMBER_ID
+            , USER_ID
             , PWD
             , NAME
             , PHONE_NUM
             , EMAIL
-            , USERSTATE
+            , USER_STATE
         )
         VALUES(
               #{memberId}

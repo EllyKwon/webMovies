@@ -5,35 +5,27 @@
 	</head>
 	<th:block layout:fragment="content">
 		<body>
+			String type = (String) request.getAttribute("type");
+			Boolean isSuccess = (Boolean) request.getAttribute("isSuccess");
+			<div th:if="${isSuccess == null}">
+				isSuccess = false;
+			</div>
 
-			<%
-				String type = (String) request.getAttribute("type");
-				Boolean isSuccess = (Boolean) request.getAttribute("isSuccess");
-				if (isSuccess == null) {
-					isSuccess = false;
-				}
-			%>
+			<div th:if="${type.equals('register')}">
+				<div th:if="${isSuccess}">
+					<script>
+						alert("회원가입이 정상적으로 완료되었습니다");
+						location.href = "login"
+					</script>
+				</div>
+			</div>
 
-
-			<%
-				if (type.equals("register")) {
-					if (isSuccess) {
-			%>
-			<script>
-				alert("회원가입이 정상적으로 완료되었습니다");
-				location.href = "login"
-			</script>
-			<%
-				} else {
-			%>
-			<script>
-				alert("회원가입에 실패하였습니다");
-				location.href = "register"
-			</script>
-			<%
-				}
-				}
-			%>
+			<div th:unless>
+				<script>
+					alert("회원가입에 실패하였습니다");
+					location.href = "register"
+				</script>
+			</div>
 
 
 			<%
