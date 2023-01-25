@@ -18,14 +18,15 @@
 						location.href = "login"
 					</script>
 				</div>
+				<div th:unless="${type.equals('register')}">
+					<script>
+						alert("회원가입에 실패하였습니다");
+						location.href = "register"
+					</script>
+				</div>
 			</div>
 
-			<div th:unless>
-				<script>
-					alert("회원가입에 실패하였습니다");
-					location.href = "register"
-				</script>
-			</div>
+
 
 
 			<%

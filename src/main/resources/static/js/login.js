@@ -54,15 +54,25 @@ function setData(data) {
 
 loginButton.addEventListener('click', () => {
     if (id.value.trim() === '') {
-    	toastr.error('아이디를 입력해 주십시오', '경고', {
+    	/*toastr.error('아이디를 입력해 주십시오', '경고', {
             timeOut: 3000,
-        });
+        });*/
+        Swal.fire({
+            text: '아이디를 입력해 주십시오',
+            confirmButtonText: '확인',
+            width: 270
+        })
         id.focus();
         return;
     } else if (pwd.value.trim() === '') {
-    	toastr.error('비밀번호를 입력해 주십시오', '경고', {
+    	/*toastr.error('비밀번호를 입력해 주십시오', '경고', {
             timeOut: 3000,
-        });
+        });*/
+        Swal.fire({
+            text: '비밀번호를 입력해 주십시오',
+            confirmButtonText: '확인',
+            width: 270
+        })
         pwd.focus();
         return;
     }

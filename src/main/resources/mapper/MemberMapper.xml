@@ -27,7 +27,8 @@
             , #{name}
             , #{phoneNum}
             , #{email}
-            , #{userState})
+            , #{userState}
+        )
     </insert>
 
     <select id="getMemberInfoForLogin" parameterType="LoginRequestVO" resultType="MemberVO">

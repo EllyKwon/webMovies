@@ -52,9 +52,8 @@ public class MemberController {
 
 	@ResponseBody
 	@RequestMapping("/idCheck")
-	public String idCheck(String id) {
-		boolean getId = memberService.getId(id);
-		return getId + "";
+	public boolean idCheck(String id) {
+		return memberService.getId(id);
 	}
 
 	@GetMapping("/register")
@@ -66,10 +65,11 @@ public class MemberController {
 	@PostMapping("/register")
 	public String register(Model model, MemberVO memberVO) {
 		int isSuccess = memberService.registerMember(memberVO);
+
 		model.addAttribute("isSuccess", isSuccess);
 		model.addAttribute("register",memberVO);
 		
-		return "process";
+		return "login";
 
 	}
 }

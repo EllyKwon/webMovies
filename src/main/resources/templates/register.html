@@ -5,9 +5,8 @@
 		<link rel="stylesheet" href="/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 		<link rel="stylesheet" href="/css/style.css">
 		<link rel="stylesheet" href="/css/hide.css">
-		<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css' />
-		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-		<script src='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js'></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 	</head>
 
 
@@ -55,7 +54,7 @@
 							<i class="zmdi zmdi-email"></i>
 						</div>
 
-						<button class="registerButton clickedButton" disabled="disabled">
+						<button class="registerButton clickedButton" disabled="disabled" onclick="registerSuccess();">
 							<span>회원가입 하기</span>
 							<i class="zmdi zmdi-arrow-right"></i>
 						</button>
@@ -63,6 +62,11 @@
 				</div>
 			</div>
 			<script src="/js/register.js"></script>
+			<script>
+				function registerSuccess(){
+					alert("회원가입이 정상적으로 완료되었습니다. 환영합니다.");
+				}
+			</script>
 		</body>
 	</th:block>
 </html>
