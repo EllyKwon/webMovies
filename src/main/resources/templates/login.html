@@ -13,16 +13,16 @@
 	<th:block layout:fragment="content">
 		<body>
 			<div class="wrapper">
-				<div class="inner">
+				<div class="inner" style="width:930px;">
 					<div class="image-holder">
-						<img id="poster" style="width: 300px;" src="/images/avata.jpg" alt="">
+						<img id="poster" src="/images/avata.jpg" alt="">
 					</div>
 <!--					<form th:action="@{/login}" id="loginForm" th:object="${memberVO}" method="post">-->
 					<div>
-						<p class="register-title">
+						<div class="register-title">
 							<img src="/images/megaboxlogin.GIF">
 							<span> 로그인</span>
-						</p>
+						</div>
 						<div class="form-wrapper form-wrapper-id">
 							<div class="id-wrapper">
 								<input type="text" id="user-id" placeholder="아이디" class="form-control">
@@ -40,11 +40,11 @@
 							<span>아이디저장</span>
 						</div>
 
-						<button type="button" class="loginButton">
+						<button type="button" class="loginButton" style="width:320px; margin-top:60px;">
 							<span>로그인</span>
 							<i class="zmdi zmdi-arrow-right"></i>
 						</button>
-						<button type="button" class="moveRegister" style="margin-top: 10px;">
+						<!--<button type="button" class="moveRegister" style="margin-top: 10px;">
 							<span>회원가입</span>
 							<i class="zmdi zmdi-arrow-right"></i>
 						</button>
@@ -52,7 +52,7 @@
 						<button type="button" class="moveMain" style="margin-top: 10px;">
 							<span>메인 홈페이지</span>
 							<i class="zmdi zmdi-arrow-right"></i>
-						</button>
+						</button>-->
 					</div>
 <!--					</form>-->
 				</div>

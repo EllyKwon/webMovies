@@ -15,35 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 데이터 가져오기
  function add() {
-
     fetch('/movie/crawling')
-            .then((response) => response.json())
-            .then((data) => {
-                            console.log(data);
-                            if(data.length === 0){
-                            	location.href="/login";
-                            }
-                           let randomNumber = Math.floor(Math.random() * 7);
-                           console.log(randomNumber);
-                           console.log(crawlingData[randomNumber].img);
-                           poster.setAttribute('src', crawlingData[randomNumber].img);
-            })
-
-    /*$.ajax({
-        url: 'crawling.do',
-        type: 'get',
-        success: function(data) {
-        	crawlingData = setData(data);
-            console.log(crawlingData);
-            if(crawlingData.length === 0){
-            	location.href="login";
-            }
-            let randomNumber = Math.floor(Math.random() * 7);
-            console.log(randomNumber);
-            console.log(crawlingData[randomNumber].img);
-            poster.setAttribute('src', crawlingData[randomNumber].img);
-        },
-    });*/
+        .then((response) => response.json())
+        .then((data) => {
+           let randomNumber = Math.floor(Math.random() * 7);
+           poster.setAttribute('src', data[randomNumber].img);
+        });
 }
 
 function setData(data) {

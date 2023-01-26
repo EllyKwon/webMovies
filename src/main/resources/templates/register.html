@@ -15,12 +15,12 @@
 			<div class="wrapper">
 				<div class="inner">
 					<div class="image-holder">
-						<img id="poster" src="images/hero.jpg" alt="">
+						<img id="poster" src="/images/hero.jpg" alt="">
 					</div>
 					<form th:action="@{/register}" id="registerForm" th:object="${memberVO}" method="post">
 						<p class="register-title">
 							<img src="/images/megaboxlogin.GIF">
-							<span>회원가입</span>
+							<span style="font-size: 35px;">회원가입</span>
 						</p>
 						<div class="form-wrapper form-wrapper-id">
 							<div class="id-wrapper">
@@ -54,8 +54,8 @@
 							<i class="zmdi zmdi-email"></i>
 						</div>
 
-						<button class="registerButton clickedButton" disabled="disabled" onclick="registerSuccess();">
-							<span>회원가입 하기</span>
+						<button class="registerButton clickedButton" disabled="disabled" onclick="registerSuccess();" style="width: 350px;">
+							<span>회원가입</span>
 							<i class="zmdi zmdi-arrow-right"></i>
 						</button>
 					</form>
