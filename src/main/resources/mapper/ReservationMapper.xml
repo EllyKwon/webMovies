@@ -43,7 +43,7 @@
             , #{playtime}
             , #{age}
             , #{movieStart}
-            , reserveTime
+            , #{reserveTime}
             , #{reserveTicket}
             , #{selectedSeat}
             , #{selectedTheater}

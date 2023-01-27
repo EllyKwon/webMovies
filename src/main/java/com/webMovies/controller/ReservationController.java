@@ -46,7 +46,7 @@ public class ReservationController {
 		model.addAttribute("reserve", reservationVO);
 		model.addAttribute("pay", payVO);
 		if(resultCount == 0) {
-			return "redirect:/main";
+			return "redirect:/";
 		}
 		return "kakao";
 	}
@@ -62,7 +62,7 @@ public class ReservationController {
 		int resultCount = payService.insertPay(payVO);
 		if(resultCount == 0) {
 			log.error("payKakao error");
-			return "redirect:/main";
+			return "redirect:/";
 		}
 		model.addAttribute("type", "reserve");
 		model.addAttribute("isSuccess", true);
