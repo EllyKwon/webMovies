@@ -12,6 +12,12 @@
 	</head>
 
 	<th:block layout:fragment="content">
+		<div th:if="${session.login} == null">
+			<script>
+                    alert("로그인이 필요한 작업입니다 로그인을 진행해 주세요!")
+                    location.href="/login"
+            </script>
+		</div>
 		<body>
 			<div class="select-container">
 				<div class="select-wrapper">
