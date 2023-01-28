@@ -25,10 +25,10 @@
 		<script src="/js/kakaoPay.js"></script>
 	</head>
 	<body>
-		<form th:action="@{/payKakao}" method="post">
-			<input type="hidden" id="pay-money" th:value="1">
-			<input type="hidden" id="member-id" th:value="${pay.memberId}">
-			<input type="hidden" id="reserve-id" th:value="${pay.reserveId}">
+		<form th:action="@{/payKakao}" id="payKakaoForm" method="post">
+			<input type="hidden" id="pay-money" th:value="${pay.payMoney}">
+			<input type="hidden" id="member-id" th:value="${session.login.memberId}">
+			<input type="hidden" id="reserve-id" th:value="${reserve.reserveId}">
 		</form>
 	</body>
 </html>

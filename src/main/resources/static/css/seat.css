@@ -205,6 +205,7 @@
     margin-bottom: 200px;
     display: flex;
     justify-content: center;
+    border-bottom: 1px solid #dddddd;
 }
 
 .screen-view {
@@ -222,6 +223,7 @@
     background-color: #222222;
     width: 700px;
     height: 460px;
+    margin-bottom: 5em;
     /* padding-top: 120px; */
 }
 

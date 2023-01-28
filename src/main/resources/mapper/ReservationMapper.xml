@@ -22,6 +22,10 @@
         ORDER BY B.PAY_DATE DESC
     </select>
 
+    <select id="selectMaxReserveId" resultType="int">
+        SELECT IFNULL(MAX(RESERVE_ID),0) + 1
+        FROM RESERVATION
+    </select>
 
     <insert id="insertReserve" parameterType="ReservationVO">
         INSERT INTO RESERVATION (

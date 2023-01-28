@@ -24,7 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
             alert(msg);
 
             //성공시 이동할 페이지
-            location.href="/payKakao?memberId=" + memberId + "&payMoney=" + payMoney + "&reserveId=" + reserveId;
+            /*location.href="/payKakao?memberId=" + memberId + "&payMoney=" + payMoney + "&reserveId=" + reserveId;*/
+
+            document.getElementById('payKakaoForm').submit();
+
         } else {
             msg = '결제에 실패하였습니다.';
             msg += '에러내용 : ' + rsp.error_msg;

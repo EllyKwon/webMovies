@@ -14,6 +14,8 @@ public class ReserveService {
 	private final ReservationMapper reservationMapper;
 
 	public int insertReserve(ReservationVO reservationVO) {
+		int nextReserveId = reservationMapper.selectMaxReserveId();
+		reservationVO.setReserveId(nextReserveId);
 		return reservationMapper.insertReserve(reservationVO);
 	}
 

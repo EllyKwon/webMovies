@@ -66,10 +66,10 @@ public class MemberController {
 	public String register(Model model, MemberVO memberVO) {
 		int isSuccess = memberService.registerMember(memberVO);
 
-		model.addAttribute("isSuccess", isSuccess);
-		model.addAttribute("register",memberVO);
+		model.addAttribute("isSuccess", true);
+		model.addAttribute("type", "register");
 		
-		return "login";
+		return "process";
 
 	}
 }

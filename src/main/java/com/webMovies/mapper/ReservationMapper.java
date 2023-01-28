@@ -8,6 +8,8 @@ public interface ReservationMapper {
 
     List<ReservationVO> selectMemberReservation(ReservationVO reservationVO);
 
+    int selectMaxReserveId();
+
     int insertReserve(ReservationVO reservationVO);
 
     List<ReservationVO> getReserveList(ReservationVO reservationVO);

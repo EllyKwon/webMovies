@@ -80,7 +80,6 @@ function passwordValidate() {
         }
         return true;
     } else {
-
         registerButton.classList.toggle('clickedButton', true);
         Swal.fire({
              text: '비밀번호가 일치하지 않습니다',
