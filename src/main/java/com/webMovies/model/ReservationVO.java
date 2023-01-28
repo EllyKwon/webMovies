@@ -2,6 +2,8 @@ package com.webMovies.model;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class ReservationVO {
         // 예약번호
@@ -31,4 +33,12 @@ public class ReservationVO {
 
         // Member의 아이디(외래키)
         private int memberId;
+
+
+        //PayVO
+        /*private PayVO payDate;
+        private PayVO payMoney;
+
+        private List<PayVO> payVOList;*/
+
 }

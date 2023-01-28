@@ -1,9 +1,7 @@
 package com.webMovies.controller;
 
-import com.webMovies.model.InfoVO;
-import com.webMovies.model.MemberVO;
-import com.webMovies.model.PayVO;
-import com.webMovies.model.ReservationVO;
+import com.webMovies.model.*;
+import com.webMovies.service.MemberService;
 import com.webMovies.service.PayService;
 import com.webMovies.service.ReserveService;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +22,7 @@ public class ReservationController {
 
 	private final ReserveService reserveService;
 	private final PayService payService;
+
 
 	@PostMapping("/reserve")
 	public String reserve(InfoVO infoVO) {
@@ -65,18 +64,11 @@ public class ReservationController {
 	}
 	
 	@RequestMapping ("/mypage")
-	public String mypage(Model model, ReservationVO reservationVO, MemberVO memberVO, HttpSession session) {
-		MemberVO login =(MemberVO)session.getAttribute("login");
-
-		reservationVO.setMemberId(login.getMemberId());
-		List<ReservationVO> list = reserveService.selectMemberReservation(reservationVO);
-
-		if(list == null) {
-			log.error("main error");
-		}
+	public String mypage(Model model, HttpSession session) {
+		MemberVO memberVO = (MemberVO) session.getAttribute("login");
+		List<ReservationVO> list = reserveService.selectMemberReservation(memberVO.getMemberId());
 
 		model.addAttribute("list", list);
-		model.addAttribute("login", login);
 		model.addAttribute("memberVO", memberVO);
 
 		return "mypage";

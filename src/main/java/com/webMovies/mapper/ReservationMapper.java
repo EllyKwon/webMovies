@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ReservationMapper {
 
-    List<ReservationVO> selectMemberReservation(ReservationVO reservationVO);
+    List<ReservationVO> selectMemberReservation(int memberId);
 
     int selectMaxReserveId();
 

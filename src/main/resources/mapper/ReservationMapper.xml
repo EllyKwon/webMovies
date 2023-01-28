@@ -3,7 +3,7 @@
 
 <mapper namespace="com.webMovies.mapper.ReservationMapper">
 
-    <select id="selectMemberReservation" parameterType="ReservationVO" resultType="ReservationVO">
+    <select id="selectMemberReservation" parameterType="int" resultType="ReservationVO">
         SELECT
             A.MEMBER_ID
           , A.RESERVE_ID

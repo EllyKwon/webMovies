@@ -23,8 +23,8 @@ public class ReserveService {
 		return reservationMapper.getReserveList(reservationVO);
 	}
 
-	public List<ReservationVO> selectMemberReservation(ReservationVO reservationVO) {
-		return reservationMapper.selectMemberReservation(reservationVO);
+	public List<ReservationVO> selectMemberReservation(int memberId) {
+		return reservationMapper.selectMemberReservation(memberId);
 	}
 
 }
