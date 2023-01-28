@@ -21,22 +21,6 @@ function add() {
             setList(data);
             reserveEvent();
         })
-
-    /*$.ajax({
-        url: 'crawling',
-        type: 'get',
-
-        success: function(data) {
-            crawlingData = setData(data);
-            console.log(crawlingData);
-//            console.log(data);
-            if(crawlingData.length === 0){
-            	location.href="moveMain.do";
-            }
-            setList(data);
-            reserveEvent();
-        },
-    });*/
 }
 
 function setList(data) {
@@ -84,10 +68,10 @@ function getList(data, index) {
                 </div>
                 <input type="hidden" name="rank" value=${data.rank}>
                 <input type="hidden" name="img" value=${data.img}>
-                <input type="hidden" name="movieTitle" value=${data.movieTitle}>
+                <input type="hidden" name="movieTitle" value=${data.movieTitle.replaceAll(' ', '&nbsp;')}>
                 <input type="hidden" name="movieRate" value=${data.movieRate}>
                 <input type="hidden" name="movieOpenDate" value=${data.movieOpenDate}>
-                <input type="hidden" name="movieRate" value=${data.movieRate}>
+                <input type="hidden" name="movieAge" value=${data.movieAge}>
                 <input type="hidden" name="like" value=${data.like}>
             </form>`;
 }

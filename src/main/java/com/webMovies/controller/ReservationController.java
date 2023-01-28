@@ -52,13 +52,7 @@ public class ReservationController {
 	}
 	
 	@PostMapping("/payKakao")
-	public String payKakao(Model model, ReservationVO reservationVO, PayVO payVO, HttpSession session) {
-		MemberVO login =(MemberVO)session.getAttribute("login");
-		reservationVO.setMemberId(login.getMemberId());
-		List<ReservationVO> list = reserveService.getReserveList(reservationVO);
-
-		payVO.setMemberId(list.get(0).getMemberId());
-		payVO.setReserveId(list.get(0).getReserveId());
+	public String payKakao(Model model, PayVO payVO) {
 		int resultCount = payService.insertPay(payVO);
 		if(resultCount == 0) {
 			log.error("payKakao error");

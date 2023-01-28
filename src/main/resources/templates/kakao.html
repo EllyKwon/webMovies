@@ -26,9 +26,9 @@
 	</head>
 	<body>
 		<form th:action="@{/payKakao}" id="payKakaoForm" method="post">
-			<input type="hidden" id="pay-money" th:value="${pay.payMoney}">
-			<input type="hidden" id="member-id" th:value="${session.login.memberId}">
-			<input type="hidden" id="reserve-id" th:value="${reserve.reserveId}">
+			<input type="hidden" id="pay-money" name="payMoney" th:value="${pay.payMoney}">
+			<input type="hidden" id="member-id" name="memberId" th:value="${session.login.memberId}">
+			<input type="hidden" id="reserve-id" name="reserveId" th:value="${reserve.reserveId}">
 		</form>
 	</body>
 </html>

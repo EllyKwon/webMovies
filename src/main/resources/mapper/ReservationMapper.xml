@@ -8,7 +8,6 @@
             A.MEMBER_ID
           , A.RESERVE_ID
           , A.TITLE
-          , A.PLAYTIME
           , A.AGE
           , A.MOVIE_START
           , A.RESERVE_TIME
@@ -32,7 +31,6 @@
               MEMBER_ID
             , RESERVE_ID
             , TITLE
-            , PLAYTIME
             , AGE
             , MOVIE_START
             , RESERVE_TIME
@@ -44,8 +42,7 @@
               #{memberId}
             , #{reserveId}
             , #{title}
-            , #{playtime}
-            , #{age}
+            , #{movieAge}
             , #{movieStart}
             , #{reserveTime}
             , #{reserveTicket}
@@ -59,7 +56,6 @@
               MEMBER_ID
             , RESERVE_ID
             , TITLE
-            , PLAYTIME
             , AGE
             , MOVIE_START
             , RESERVE_TIME

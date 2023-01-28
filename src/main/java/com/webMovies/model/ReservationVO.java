@@ -10,11 +10,8 @@ public class ReservationVO {
         // 영화제목
         private String title;
 
-        // 상영시간
-        private String playtime;
-
         // 연령제한
-        private String age;
+        private String movieAge;
 
         // 시작시간
         private String movieStart;

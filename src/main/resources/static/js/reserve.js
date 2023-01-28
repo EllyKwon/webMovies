@@ -23,53 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 데이터 가져오기
 function add() {
-    /*$.ajax({
-        url: 'movie/crawling',
-        type: 'get',
-        success: function(data) {
-            crawlingData = setData(data);
-            // console.log(crawlingData);
-            // document.querySelector('.movie-list-wrapper').append(crawlingData);
-            //            poster.setAttribute('src', crawlingData[randomNumber].img)crawlingData;
-            setList(data);
-            movieListAge = document.querySelectorAll('.movie-list-age');
-            movieListAge.forEach(li => {
-                if (li.innerHTML === '15세 이상') {
-                    li.classList.add('fifteen');
-                } else if (li.innerHTML === '청소년 관람불가') {
-                    li.classList.add('eighteen');
-                    li.innerHTML = '청불';
-                } else if (li.innerHTML === '전체') {
-                    li.classList.add('all');
-                }
-            });
-            if (crawlingData.length === 0) {
-                location.href = 'reserve';
-            }
-            document.querySelectorAll('.movie-list-title').forEach(li => {
-                li.addEventListener('click', function() {
-                    const movieListTitleActvie = document.querySelectorAll(
-                        '.movie-list-title-active'
-                    );
-                    movieListTitleActvie.forEach(li => {
-                        li.classList.remove('movie-list-title-active');
-                    });
-                    li.parentNode.classList.add('movie-list-title-active');
-                    console.log(li.innerHTML);
-                    console.log(li.parentElement);
-                    console.log(li.parentElement.childNodes[1].innerHTML);
-                    //form에 넘기기 위한
-                    movieAge.value = li.parentElement.childNodes[1].innerHTML;
-                    inputTitle.value = li.innerHTML;
-                });
-            });
-        },
-        error: function() {
-            document.querySelector('.movie-list-wrapper').innerHTML =
-                '데이터가없습니다 새로고침해주세요';
-        },
-    });*/
-
     fetch('/movie/crawling')
         .then((response) => response.json())
         .then((data) => {
@@ -111,12 +64,6 @@ function add() {
         })
 
 };
-
-function setData(data) {
-    data = JSON.parse(data);
-
-    return data;
-}
 
 function setList(data) {
     document.querySelector('.movie-list-wrapper').innerHTML = JSON.parse(

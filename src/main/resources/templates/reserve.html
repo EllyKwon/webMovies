@@ -19,21 +19,6 @@
                 </script>
             </div>
             <div class="reserve-container">
-<!--
-                <div class="movie-part">
-                    <div class="reserve-title">영화</div>
-                    <div class="sort-wrapper">
-                        <div class="sort-rate sort-selected">예매율순</div>
-                        <div class="sort-korean">가나다순</div>
-                    </div>
-                     <div class="movie-list-wrapper">
-                        <div class="movie-list">
-                            <div class="movie-list-age">15</div>
-                            <div class="movie-list-title">1917</div>
-                        </div>
-                    </div>
-                </div>
--->
                 <div class="theater-part">
                     <div class="reserve-title">
                         극장
@@ -99,10 +84,10 @@
                     <div>
                     <form th:action="@{/seat}" class="moveSeatForm" method="post">
                         <input type="hidden" class="title" name="title" th:value="${infoVO.movieTitle}">
-                        <input type="hidden" class="movieAge" name="age">
+                        <input type="hidden" class="movieAge" name="movieAge" th:value="${infoVO.movieAge}">
                         <input type="hidden" class="selectedTheater" name="selectedTheater">
                         <input type="hidden" class="reserveDate" name="movieStart">
-                        <input type="hidden" class="runningTime" name="playtime">
+                        <input type="hidden" class="runningTime" name="reserveTime">
                         <button class="moveSeatButton" type="button">예약하기</button>
                     </form>
                     </div>

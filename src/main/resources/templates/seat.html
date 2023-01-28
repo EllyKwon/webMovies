@@ -81,7 +81,7 @@
 							</div>
 						</div>
 						<div class="select-seat-information">
-							<div class="selected-movie" th:text="${reserve.getTitle()}"></div>
+							<div class="selected-movie" th:text="${reserve.title}"></div>
 							<div class="select-seat-information-wrapper">
 								<div class="select-theater-place selected-theater-place-info">CGV강남</div>
 								<div class="select-theater-place selected-theater-place-info">3관 8층</div>
@@ -92,8 +92,8 @@
 
 							</div>
 							<div class="select-theater-date">
-								<div class="theater-date" th:text="${reserve.getMovieStart()}"></div>
-								<div class="theater-time" th:text="${reserve.getPlaytime()}"></div>
+								<div class="theater-date" th:text="${reserve.movieStart}"></div>
+								<div class="theater-time" th:text="${reserve.reserveTime}"></div>
 							</div>
 							<div class="selected-seats-wrapper">
 								<span class="selected-seats-title">좌석번호</span> <span
@@ -107,8 +107,8 @@
 								<input type="hidden" class="title" name="title"> <input
 									type="hidden" class="selectedTheater" name="selectedTheater">
 								<input type="hidden" class="reserveDate" name="movieStart">
-								<input type="hidden" class="runningTime" name="playtime">
-								<input type="hidden" class="movieAge" name="age" th:value="${reserve.getAge()}">
+								<input type="hidden" class="runningTime" name="reserveTime">
+								<input type="hidden" class="movieAge" name="movieAge" th:value="${reserve.movieAge}">
 								<!-- 티켓의수(선택한 좌석) -->
 								<input type="hidden" class="ticketNumber" name="reserveTicket">
 								<input type="hidden" class="selectedSeat" name="selectedSeat">
