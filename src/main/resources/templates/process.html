@@ -104,6 +104,13 @@
 				</div>
 			</div>
 
+			<div th:if="${#strings.equals(type,'reLogin')}">
+					<script>
+						alert("다시 로그인 하세요");
+						location.href = "/login"
+					</script>
+			</div>
+
 		</body>
 	</th:block>
 </html>

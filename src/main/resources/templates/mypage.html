@@ -10,19 +10,18 @@
 		<link rel="stylesheet" href="/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 	</head>
 	<th:block layout:fragment="content">
-		<!--<div header="none;"></div>-->
 		<div th:if="${session.login} == null">
 			<script>
-                    alert("로그인이 필요한 작업입니다 로그인을 진행해 주세요!")
-                    location.href="/login"
-                </script>
+				alert("로그인이 필요한 작업입니다 로그인을 진행해 주세요!")
+				location.href="/login"
+			</script>
 		</div>
 			<div class="my-page-container">
 				<div class="my-page-wrapper">
 					<div class="my-page-header">예약한 영화 목록</div>
 						<div class="movie-reserve-list">
 							<div th:if="${list == null}" th:text="'예약한 영화가 없습니다'"></div>
-							<div class="movie-reserve" th:each="reservation : ${list}" th:if="${reservation != null}">
+							<div class="movie-reserve" th:each="reservation : ${list}" th:if="${list != null}">
 								<div class="movie-reserve-age" th:text="${reservation.movieAge}"></div>
 								<div class="movie-reserve-title" th:utext="${reservation.title}"></div>
 								<div class="movie-reserve-theater-wrapper">
@@ -43,7 +42,7 @@
 									</div>
 									<div class="pay-information-money-wrapper">
 										<div class="pay-information-money-title">결제한 비용</div>
-										<div class="pay-information-money" th:text="${reservation.payMoney}">원</div>
+										<div class="pay-information-money" th:text="${reservation.payMoney}+'원'"></div>
 									</div>
 									<div class="barcode-wrapper">
 										<div>MAGA BOX</div>

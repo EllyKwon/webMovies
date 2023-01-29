@@ -36,9 +36,7 @@ public class ReservationVO {
 
 
         //PayVO
-        /*private PayVO payDate;
-        private PayVO payMoney;
-
-        private List<PayVO> payVOList;*/
+        private String payDate;
+        private String payMoney;
 
 }

@@ -66,6 +66,11 @@ public class ReservationController {
 	@RequestMapping ("/mypage")
 	public String mypage(Model model, HttpSession session) {
 		MemberVO memberVO = (MemberVO) session.getAttribute("login");
+		if(memberVO == null){
+			model.addAttribute("type", "reLogin");
+			return "process";
+		}
+
 		List<ReservationVO> list = reserveService.selectMemberReservation(memberVO.getMemberId());
 
 		model.addAttribute("list", list);
