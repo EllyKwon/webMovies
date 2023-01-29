@@ -1,8 +1,6 @@
 const date = new Date();
-// console.log(date.getFullYear());
 const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 const reserveDate = document.querySelector('.reserve-date');
-const theaterPlace = document.querySelectorAll('.theater-place');
 const reserveTimeWant = document.querySelectorAll('.reserve-time-want');
 const inputTitle = document.querySelector('.title');
 const inputSelectedTheater = document.querySelector('.selectedTheater');
@@ -10,78 +8,15 @@ const inputReserveDate = document.querySelector('.reserveDate');
 const inputRunningTime = document.querySelector('.runningTime');
 const moveSeatForm = document.querySelector('.moveSeatForm');
 const moveSeatButton = document.querySelector('.moveSeatButton');
-const movieAge = document.querySelector('.movieAge');
+const theaterLocations = document.querySelectorAll('.theater-location');
 
-let movieListAge = '';
 let year = 0;
 let month = 0;
-add();
+let theaterPlace = document.querySelectorAll('.theater-place');
+
 document.addEventListener('DOMContentLoaded', () => {
-    add();
     addDate();
 });
-
-// 데이터 가져오기
-function add() {
-    fetch('/movie/crawling')
-        .then((response) => response.json())
-        .then((data) => {
-            setList(data);
-            movieListAge = document.querySelectorAll('.movie-list-age');
-            movieListAge.forEach(li => {
-                if (li.innerHTML === '15세 이상') {
-                    li.classList.add('fifteen');
-                } else if (li.innerHTML === '청소년 관람불가') {
-                    li.classList.add('eighteen');
-                    li.innerHTML = '청불';
-                } else if (li.innerHTML === '전체') {
-                    li.classList.add('all');
-                }
-            });
-            if (crawlingData.length === 0) {
-                location.href = '/reserve';
-            }
-            document.querySelectorAll('.movie-list-title').forEach(li => {
-                li.addEventListener('click', function() {
-                    const movieListTitleActvie = document.querySelectorAll(
-                        '.movie-list-title-active'
-                    );
-                    movieListTitleActvie.forEach(li => {
-                        li.classList.remove('movie-list-title-active');
-                    });
-                    li.parentNode.classList.add('movie-list-title-active');
-                    console.log(li.innerHTML);
-                    console.log(li.parentElement);
-                    console.log(li.parentElement.childNodes[1].innerHTML);
-                    //form에 넘기기 위한
-                    movieAge.value = li.parentElement.childNodes[1].innerHTML;
-                    inputTitle.value = li.innerHTML;
-                });
-            });
-        })
-        .catch(() => {
-                document.querySelector('.movie-list-wrapper').innerHTML = '데이터가없습니다 새로고침해주세요';
-        })
-
-};
-
-function setList(data) {
-    document.querySelector('.movie-list-wrapper').innerHTML = JSON.parse(
-        data
-    ).reduce((html = '', item, index = 0) => {
-        html += getMovieList(item);
-
-        return html;
-    }, ' ');
-}
-
-function getMovieList(item) {
-    console.log(item);
-    return `<div class="movie-list">
-    <div class="movie-list-age">${item.movieAge}</div>
-    <button class="movie-list-title">${item.movieTitle}</button>
-</div>`;
-}
 
 function addDate() {
     const weekOfDay = ['일', '월', '화', '수', '목', '금', '토'];
@@ -189,3 +124,18 @@ moveSeatButton.addEventListener('click', function() {
        })
     }
 });
+
+theaterLocations.forEach((target) => target.addEventListener("click", function() {
+        document.querySelectorAll(".theater-place").forEach( (place) => {place.style.display = "none";} );
+        let location = this.innerText;
+        if( location === '서울' ) {
+            document.querySelectorAll(".seoul").forEach( (place) => {place.style.display = "";} );
+        } else if( location === '경기' ) {
+            document.querySelectorAll(".gyeonggi").forEach( (place) => {place.style.display = "";} );
+        } else if( location === '인천' ) {
+            document.querySelectorAll(".incheon").forEach( (place) => {place.style.display = "";} );
+        } else if( location === '강원' ) {
+            document.querySelectorAll(".gangwon").forEach( (place) => {place.style.display = "";} );
+        }
+    })
+);
