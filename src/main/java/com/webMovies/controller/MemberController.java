@@ -26,7 +26,7 @@ public class MemberController {
 
 	@PostMapping("/login")
 	@ResponseBody
-	public LoginResponseVO login(@RequestBody LoginRequestVO loginRequestVO, HttpSession session) {
+	public LoginResponseVO login(@RequestBody LoginRequestVO loginRequestVO, HttpSession session) throws Exception {
 		MemberVO memberlogin = memberService.login(loginRequestVO);
 		session.setAttribute("login", memberlogin);
 
@@ -52,7 +52,7 @@ public class MemberController {
 
 	@ResponseBody
 	@RequestMapping("/idCheck")
-	public boolean idCheck(String id) {
+	public boolean idCheck(String id) throws Exception {
 		return memberService.getId(id);
 	}
 

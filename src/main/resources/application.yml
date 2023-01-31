@@ -1,8 +1,6 @@
 #-----------------------------------------------------------------------
 # ?? ??
 #-----------------------------------------------------------------------
-server:
-  port: 8090
 spring:
   mvc:
     pathmatch:
@@ -12,9 +10,9 @@ spring:
   # API LOG - MYSQL(??)
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    jdbc-url: jdbc:mysql://localhost:3307/mega?&serverTimezone=Asia/Seoul
-    username: mega
-    password: mega1234
+    jdbc-url: jdbc:mysql://localhost:3306/webmovies?&serverTimezone=Asia/Seoul
+    username: webmovies
+    password: rnjsdPwl1@
     mapper-locations: classpath:/mapper/**/*.xml
 
 

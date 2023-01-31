@@ -17,7 +17,7 @@ public class MemberService {
 		return memberMapper.register(memberVO);
 	}
 
-	public boolean getId(String id) {
+	public boolean getId(String id) throws Exception{
 		String getId = memberMapper.getId(id);
 		if(StringUtils.hasLength(getId)) {
 			return true;
@@ -25,7 +25,7 @@ public class MemberService {
 		return false;
 	}
 
-	public MemberVO login(LoginRequestVO loginRequestVO) {
+	public MemberVO login(LoginRequestVO loginRequestVO) throws Exception {
 		return memberMapper.getMemberInfoForLogin(loginRequestVO);
 	}
 
